@@ -1,4 +1,5 @@
 var mark = () => {
+  // const date = new Date();
   const date = new Date();
   let day = date.getDay();
   let hour = date.getHours();
@@ -8,7 +9,6 @@ var mark = () => {
   } else {
     var elem = document.querySelector(`tr:nth-child(${day + 1})`);
     elem.style.backgroundColor = "rgb(65, 67, 133)";
-
   }
 
   //to highlight current class
@@ -25,14 +25,22 @@ var mark = () => {
 
   let currCell = cell - colspancount + 1;
 
+  if (colspancount == 2) {
+    currCell += 1;
+  }
+  if (colspancount == 2 && hour == 15) {
+    currCell -= 1;
+  }
+
   if (day == 0) {
   } else {
     if (hour >= 10 && hour <= 15) {
       let elem2 = elem.querySelector(`td:nth-child(${currCell})`);
-      if (elem2.innerHTML == "*") {
-      } else {
-        elem2.style.backgroundColor = "rgb(23, 105, 5)";
-      }
+      // if (elem2.innerHTML == " ") {
+      // }
+      // else {
+      elem2.style.backgroundColor = "rgb(23, 105, 5)";
+      // }
     } else {
       console.log("wrong code");
     }
@@ -42,7 +50,7 @@ var mark = () => {
 const DynamicClock = () => {
   setInterval(() => {
     var date = new Date();
-    var time = date.toLocaleTimeString('en-US');
+    var time = date.toLocaleTimeString("en-US");
     var today = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
     document.getElementById("clock").innerHTML = time;
     document.getElementById("calender").innerHTML = today;
