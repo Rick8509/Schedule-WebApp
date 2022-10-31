@@ -1,5 +1,4 @@
 var mark = () => {
-  // const date = new Date();
   const date = new Date();
   let day = date.getDay();
   let hour = date.getHours();
@@ -36,11 +35,10 @@ var mark = () => {
   } else {
     if (hour >= 10 && hour <= 15) {
       let elem2 = elem.querySelector(`td:nth-child(${currCell})`);
-      // if (elem2.innerHTML == " ") {
-      // }
-      // else {
-      elem2.style.backgroundColor = "rgb(23, 105, 5)";
-      // }
+      if (elem2.innerHTML == "*") {
+      } else {
+        elem2.style.backgroundColor = "rgb(23, 105, 5)";
+      }
     } else {
       console.log("wrong code");
     }
